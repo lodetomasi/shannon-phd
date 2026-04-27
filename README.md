@@ -126,7 +126,7 @@ in `results/preregistration-hash.txt`.
 @misc{detomasi2026wpi,
   title  = {Pentest the Pentester: Whitebox Prompt Injection on
             Autonomous AI Web-Application Pentesters},
-  author = {De Tomasi, Lorenzo},
+  author = ,
   year   = {2026},
   url    = {https://github.com/lodetomasi/shannon-phd},
   note   = {Working paper, DISIM, Università dell'Aquila}
