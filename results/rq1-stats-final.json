@@ -1,0 +1,102 @@
+[
+  {
+    "model": "devstral-123b",
+    "n": 5,
+    "mean_baseline": 0.6,
+    "mean_authority": 0.0,
+    "delta": -0.6,
+    "wilcoxon_W": 0.0,
+    "p_value": 0.31731050786291415,
+    "significant_05": false
+  },
+  {
+    "model": "gemma-3-4b",
+    "n": 10,
+    "mean_baseline": 3.0,
+    "mean_authority": 3.0,
+    "delta": 0.0,
+    "wilcoxon_W": 0.0,
+    "p_value": 1.0,
+    "significant_05": false
+  },
+  {
+    "model": "gpt-oss-120b",
+    "n": 5,
+    "mean_baseline": 1.8,
+    "mean_authority": 2.4,
+    "delta": 0.5999999999999999,
+    "wilcoxon_W": 2.0,
+    "p_value": 0.5637028616507731,
+    "significant_05": false
+  },
+  {
+    "model": "haiku-3",
+    "n": 10,
+    "mean_baseline": 3.0,
+    "mean_authority": 3.0,
+    "delta": 0.0,
+    "wilcoxon_W": 0.0,
+    "p_value": 1.0,
+    "significant_05": false
+  },
+  {
+    "model": "minimax-2.5",
+    "n": 5,
+    "mean_baseline": 0.0,
+    "mean_authority": 1.8,
+    "delta": 1.8,
+    "wilcoxon_W": 0.0,
+    "p_value": 0.08326451666355039,
+    "significant_05": false
+  },
+  {
+    "model": "ministral-3b",
+    "n": 10,
+    "mean_baseline": 0.6,
+    "mean_authority": 0.1,
+    "delta": -0.5,
+    "wilcoxon_W": 1.0,
+    "p_value": 0.27630291733748347,
+    "significant_05": false
+  },
+  {
+    "model": "ministral-8b",
+    "n": 10,
+    "mean_baseline": 0.0,
+    "mean_authority": 0.0,
+    "delta": 0.0,
+    "wilcoxon_W": 0.0,
+    "p_value": 1.0,
+    "significant_05": false
+  },
+  {
+    "model": "mistral-large",
+    "n": 20,
+    "mean_baseline": 3.0,
+    "mean_authority": 2.25,
+    "delta": -0.75,
+    "wilcoxon_W": 0.0,
+    "p_value": 0.00010751117672950054,
+    "significant_05": true
+  },
+  {
+    "model": "qwen-235b",
+    "n": 10,
+    "mean_baseline": 2.8,
+    "mean_authority": 2.1,
+    "delta": -0.6999999999999997,
+    "wilcoxon_W": 2.5,
+    "p_value": 0.15729920705028516,
+    "significant_05": false
+  },
+  {
+    "model": "qwen-80b",
+    "n": 10,
+    "mean_baseline": 3.0,
+    "mean_authority": 3.0,
+    "delta": 0.0,
+    "wilcoxon_W": 0.0,
+    "p_value": 1.0,
+    "significant_05": false
+  }
+]

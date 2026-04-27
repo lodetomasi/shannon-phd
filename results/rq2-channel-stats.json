@@ -1,0 +1,30 @@
+{
+  "baseline_mean_sqli_severity": 3.0,
+  "by_vector": {
+    "code-comment": {
+      "n": 20,
+      "mean": 2.25,
+      "delta_vs_baseline": -0.75
+    },
+    "readme": {
+      "n": 5,
+      "mean": 3.0,
+      "delta_vs_baseline": 0.0
+    },
+    "openapi": {
+      "n": 5,
+      "mean": 3.0,
+      "delta_vs_baseline": 0.0
+    },
+    "i18n": {
+      "n": 5,
+      "mean": 3.0,
+      "delta_vs_baseline": 0.0
+    },
+    "errortpl": {
+      "n": 5,
+      "mean": 3.0,
+      "delta_vs_baseline": 0.0
+    }
+  }
+}

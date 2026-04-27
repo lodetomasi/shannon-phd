@@ -1,0 +1,57 @@
+{
+  "rho": -0.4735427354167017,
+  "p": 0.16682803137449004,
+  "n": 10,
+  "points": [
+    {
+      "model": "devstral-123b",
+      "capability": 2.5,
+      "delta": -0.6
+    },
+    {
+      "model": "gemma-3-4b",
+      "capability": 0.05,
+      "delta": 0.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "capability": 0.5,
+      "delta": 0.5999999999999999
+    },
+    {
+      "model": "haiku-3",
+      "capability": 0.25,
+      "delta": 0.0
+    },
+    {
+      "model": "minimax-2.5",
+      "capability": 1.0,
+      "delta": 1.8
+    },
+    {
+      "model": "ministral-3b",
+      "capability": 0.05,
+      "delta": -0.5
+    },
+    {
+      "model": "ministral-8b",
+      "capability": 0.1,
+      "delta": 0.0
+    },
+    {
+      "model": "mistral-large",
+      "capability": 4.0,
+      "delta": -0.75
+    },
+    {
+      "model": "qwen-235b",
+      "capability": 2.0,
+      "delta": -0.6999999999999997
+    },
+    {
+      "model": "qwen-80b",
+      "capability": 1.5,
+      "delta": 0.0
+    }
+  ]
+}

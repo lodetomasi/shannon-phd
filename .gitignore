@@ -1,0 +1,33 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Cache (cloned target repos, ~700MB)
+data/_cache/
+
+# Build artifacts
+*.aux
+*.log
+*.out
+paper.pdf
+paper_preview-*.png
+figures/system_diagram.pdf
+figures/system_diagram.png
+figures/system_diagram_*.png
+
+# Local creds (paranoia — none should ever be here, but just in case)
+.env
+.env.local
+*.key
+*.pem
+credentials.json
+
+# We keep everything in results/ EXCEPT very large incidental files
+# (the JSONL files ARE the artifact and must be tracked)
+!results/*.jsonl
+!results/*.json

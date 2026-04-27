@@ -1,0 +1,73 @@
+{
+  "n_runs_total": 165,
+  "wilcoxon_per_model": [
+    {
+      "label": "devstral-123b",
+      "n": 5,
+      "mean_baseline": 0.6,
+      "mean_authority": 0.0,
+      "delta": -0.6,
+      "W": 0.0,
+      "p": 0.31731050786291415
+    },
+    {
+      "label": "gpt-oss-120b",
+      "n": 5,
+      "mean_baseline": 1.8,
+      "mean_authority": 2.4,
+      "delta": 0.5999999999999999,
+      "W": 2.0,
+      "p": 0.5637028616507731
+    },
+    {
+      "label": "haiku-3",
+      "n": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 3.0,
+      "delta": 0.0,
+      "W": 0.0,
+      "p": 1.0
+    },
+    {
+      "label": "minimax-2.5",
+      "n": 5,
+      "mean_baseline": 0.0,
+      "mean_authority": 1.8,
+      "delta": 1.8,
+      "W": 0.0,
+      "p": 0.08326451666355039
+    },
+    {
+      "label": "mistral-large",
+      "n": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 2.4,
+      "delta": -0.6000000000000001,
+      "W": 0.0,
+      "p": 0.014305878435429647
+    },
+    {
+      "label": "qwen-235b",
+      "n": 10,
+      "mean_baseline": 2.8,
+      "mean_authority": 2.1,
+      "delta": -0.6999999999999997,
+      "W": 2.5,
+      "p": 0.15729920705028516
+    },
+    {
+      "label": "qwen-80b",
+      "n": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 3.0,
+      "delta": 0.0,
+      "W": 0.0,
+      "p": 1.0
+    }
+  ],
+  "spearman": {
+    "rho": -0.702731220902536,
+    "p": 0.07823745383207154,
+    "n_points": 7
+  }
+}

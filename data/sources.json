@@ -1,0 +1,196 @@
+{
+  "schema_version": "1",
+  "description": "Pinned registry of every external resource needed to reproduce the paper. Add entries here, never inline URLs in code.",
+  "resources": [
+    {
+      "id": "tgt-juice-shop",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/juice-shop/juice-shop.git",
+      "ref": "v17.1.1",
+      "dest": "data/_cache/targets/juice-shop",
+      "license": "MIT",
+      "notes": "Primary white-box target. Source repo + Docker image; we use the source for whitebox context and the image for runtime."
+    },
+    {
+      "id": "tgt-webgoat",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/WebGoat/WebGoat.git",
+      "ref": "v2025.3",
+      "dest": "data/_cache/targets/webgoat",
+      "license": "GPL-2.0",
+      "notes": "Java/Spring target. Heavier but pedagogically curated vulnerabilities."
+    },
+    {
+      "id": "tgt-dvwa",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/digininja/DVWA.git",
+      "ref": "v1.10",
+      "dest": "data/_cache/targets/dvwa",
+      "license": "GPL-3.0",
+      "notes": "PHP target. Multi-difficulty levels — useful to study tool sensitivity to obfuscation."
+    },
+    {
+      "id": "tgt-nodegoat",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/OWASP/NodeGoat.git",
+      "ref": "main",
+      "dest": "data/_cache/targets/nodegoat",
+      "license": "Apache-2.0",
+      "notes": "Node.js target — different stack than Juice Shop."
+    },
+    {
+      "id": "tgt-bwapp",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/raesene/bwapp.git",
+      "ref": "master",
+      "dest": "data/_cache/targets/bwapp",
+      "license": "AGPL-3.0",
+      "notes": "PHP target with very broad vulnerability catalog (~100). Useful for ground truth diversity."
+    },
+    {
+      "id": "tgt-vampi",
+      "kind": "git",
+      "category": "target-app",
+      "repo": "https://github.com/erev0s/VAmPI.git",
+      "ref": "main",
+      "dest": "data/_cache/targets/vampi",
+      "license": "MIT",
+      "notes": "API-focused target. Tests OpenAPI-vector payloads naturally."
+    },
+    {
+      "id": "tool-shannon",
+      "kind": "git",
+      "category": "pentester-tool",
+      "repo": "https://github.com/KeygraphHQ/shannon.git",
+      "ref": "main",
+      "dest": "data/_cache/tools/shannon",
+      "license": "AGPL-3.0",
+      "notes": "Primary tool. PIN COMMIT before Phase 1 freeze."
+    },
+    {
+      "id": "tool-pentestgpt",
+      "kind": "git",
+      "category": "pentester-tool",
+      "repo": "https://github.com/GreyDGL/PentestGPT.git",
+      "ref": "main",
+      "dest": "data/_cache/tools/pentestgpt",
+      "license": "MIT",
+      "notes": "Academic baseline. Expects black-box recon style — adapt to white-box where possible."
+    },
+    {
+      "id": "tool-hackingbuddygpt",
+      "kind": "git",
+      "category": "pentester-tool",
+      "repo": "https://github.com/ipa-lab/hackingBuddyGPT.git",
+      "ref": "main",
+      "dest": "data/_cache/tools/hackingbuddygpt",
+      "license": "MIT",
+      "notes": "TU Wien tool. Currently more linux-pentesting oriented; check applicability."
+    },
+    {
+      "id": "tool-vulnhuntr",
+      "kind": "git",
+      "category": "pentester-tool",
+      "repo": "https://github.com/protectai/vulnhuntr.git",
+      "ref": "main",
+      "dest": "data/_cache/tools/vulnhuntr",
+      "license": "AGPL-3.0",
+      "notes": "Protect AI. Source-code-only (no browser); fits 'whitebox-static' subcategory."
+    },
+    {
+      "id": "tool-autopenbench",
+      "kind": "git",
+      "category": "pentester-tool",
+      "repo": "https://github.com/lucagioacchini/auto-pen-bench.git",
+      "ref": "main",
+      "dest": "data/_cache/tools/autopenbench",
+      "license": "MIT",
+      "notes": "Academic benchmark + agent. Useful as eval-baseline reference."
+    },
+    {
+      "id": "gt-cisa-kev",
+      "kind": "http",
+      "category": "ground-truth",
+      "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/ground_truth/cisa_kev.json",
+      "license": "Public domain (CISA)",
+      "notes": "CISA Known Exploited Vulnerabilities. Refreshed per experiment date."
+    },
+    {
+      "id": "gt-nvd-recent",
+      "kind": "http",
+      "category": "ground-truth",
+      "url": "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-recent.json.gz",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/ground_truth/nvd_recent.json.gz",
+      "license": "Public domain (NVD)",
+      "notes": "Most recent CVEs from NVD. Used to map target-app vulnerabilities when CVE-tagged."
+    },
+    {
+      "id": "gt-juice-shop-canonical",
+      "kind": "git",
+      "category": "ground-truth",
+      "repo": "https://github.com/juice-shop/juice-shop.git",
+      "ref": "v17.1.1",
+      "dest": "data/_cache/ground_truth/juice-shop-challenges",
+      "license": "MIT",
+      "notes": "Juice Shop has machine-readable challenge metadata in data/static/challenges.yml — that IS our ground truth for that target."
+    },
+    {
+      "id": "ref-xbow-xben",
+      "kind": "git",
+      "category": "benchmark-reference",
+      "repo": "https://github.com/KeygraphHQ/shannon.git",
+      "ref": "main",
+      "dest": "data/_cache/refs/xbow",
+      "license": "AGPL-3.0",
+      "notes": "XBOW/XBEN benchmark results live in shannon repo under xben-benchmark-results/. Reference, not directly evaluated."
+    },
+    {
+      "id": "lit-llm-agent-security-survey",
+      "kind": "http",
+      "category": "literature",
+      "url": "https://arxiv.org/pdf/2407.19354v1.pdf",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/literature/llm_agent_security_survey.pdf",
+      "license": "arXiv",
+      "notes": "Emerged Security and Privacy of LLM Agent — primary related-work anchor."
+    },
+    {
+      "id": "lit-agent-takeover",
+      "kind": "http",
+      "category": "literature",
+      "url": "https://arxiv.org/pdf/2507.06850v3.pdf",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/literature/agent_takeover.pdf",
+      "license": "arXiv",
+      "notes": "Agent-based attacks for computer takeover."
+    },
+    {
+      "id": "lit-saga",
+      "kind": "http",
+      "category": "literature",
+      "url": "https://arxiv.org/pdf/2504.21034v2.pdf",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/literature/saga.pdf",
+      "license": "arXiv",
+      "notes": "SAGA defenses — used in defense comparison."
+    },
+    {
+      "id": "lit-control-measures",
+      "kind": "http",
+      "category": "literature",
+      "url": "https://arxiv.org/pdf/2504.05259v1.pdf",
+      "sha256": "REFRESH_PER_RUN",
+      "dest": "data/_cache/literature/control_measures.pdf",
+      "license": "arXiv",
+      "notes": "Control measures for LLM agents — defense-related."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+# Controlled lab — Phase 3: full sandbox.
+#
+# Topology:
+#   - lab-net  (internal:true): target + egress-trap + auriga.
+#                Niente raggiunge il public internet da questa rete.
+#   - agent-net (NOT internal): auriga + egress-proxy.
+#                Solo via proxy si esce. Il proxy ha allowlist su HTTPS-CONNECT
+#                verso api.anthropic.com / api.openai.com / generativelanguage.
+#
+# Auriga è multihomed (entrambe le reti):
+#   - lab-net    → parla col target Juice Shop.
+#   - agent-net  → parla col proxy per le chiamate LLM.
+#
+# Tutti i container con cap_drop=ALL, read_only=true (rootfs immutabile),
+# tmpfs scrivibili dove serve, no-new-privileges, resource limits.
+#
+# Reproducibility: pin all images by digest before each experimental freeze.
+# Use `docker manifest inspect <image:tag>` to obtain the resolved digest
+# and write it into paper/results/lab-digests.txt for the run.
+
+x-hardening: &hardening
+  cap_drop: ["ALL"]
+  security_opt:
+    - "no-new-privileges:true"
+  read_only: true
+  restart: "no"
+
+services:
+  juice-shop:
+    <<: *hardening
+    image: bkimminich/juice-shop:v17.1.1   # TODO: pin @sha256: before paper run
+    container_name: paper-juice-shop
+    networks: [lab-net]
+    tmpfs:
+      - /tmp
+      - /usr/src/app/data:exec  # juice-shop writes runtime DB here; effimerizziamo
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  egress-trap:
+    <<: *hardening
+    build:
+      context: ./egress_trap
+      dockerfile: Dockerfile
+    container_name: paper-egress-trap
+    cap_add: ["NET_BIND_SERVICE"]   # needed for ports 53/80
+    networks:
+      lab-net:
+        aliases:
+          - "*"   # catchall via DNS — resolves any name to the trap
+    volumes:
+      - ./egress_trap_logs:/var/log/egress-trap
+    tmpfs:
+      - /tmp
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  egress-proxy:
+    <<: *hardening
+    build:
+      context: ./egress_proxy
+      dockerfile: Dockerfile
+    container_name: paper-egress-proxy
+    networks:
+      - agent-net
+      - egress-net
+    cap_add: ["NET_BIND_SERVICE"]
+    volumes:
+      - ./egress_proxy_logs:/var/log/squid
+    tmpfs:
+      - /tmp
+      - /var/spool/squid
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  auriga:
+    <<: *hardening
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: paper-auriga
+    networks:
+      - lab-net
+      - agent-net
+    environment:
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY is required}"
+      HTTPS_PROXY: "http://egress-proxy:3128"
+      HTTP_PROXY: "http://egress-proxy:3128"
+      ALL_PROXY: "http://egress-proxy:3128"
+      NO_PROXY: "juice-shop,egress-trap,localhost,127.0.0.1"
+    volumes:
+      - ./auriga_results:/results
+    tmpfs:
+      - /tmp
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+    # Default command: print help. Override with --target/--repo/--out at run time.
+    command: ["--help"]
+    depends_on:
+      juice-shop:
+        condition: service_healthy
+      egress-trap:
+        condition: service_started
+      egress-proxy:
+        condition: service_started
+
+networks:
+  lab-net:
+    driver: bridge
+    internal: true            # NO public-internet egress on this network
+    name: paper_lab-net
+  agent-net:
+    driver: bridge
+    internal: true            # Auriga can only reach the proxy here
+    name: paper_agent-net
+  egress-net:
+    driver: bridge            # Proxy uses this to reach the public internet
+    name: paper_egress-net

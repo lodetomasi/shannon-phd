@@ -1,0 +1,13 @@
+This work — specifically the payload library
+(payloads/library/seed_payloads.json), the run telemetry
+(results/*.jsonl, results/*.json), and the figures (figures/) —
+is licensed under the Creative Commons Attribution 4.0 International
+License (CC BY 4.0).
+
+You may share and adapt the work for any purpose, including commercially,
+provided you give appropriate credit. See:
+https://creativecommons.org/licenses/by/4.0/
+
+Citation:
+  Lorenzo De Tomasi, "Pentest the Pentester: Whitebox Prompt Injection
+  on AI Pentesters", working paper, 2026.

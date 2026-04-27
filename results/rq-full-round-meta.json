@@ -1,0 +1,10 @@
+{
+  "n_runs": 150,
+  "total_cost_usd": 0.6802,
+  "tiers": {
+    "T1": "Mistral-Large supplement to N=20",
+    "T2": "Small models \u00d7 N=10 (RQ4)",
+    "T3": "RQ2 channel comparison",
+    "T4": "RQ1 multi-payload robustness"
+  }
+}

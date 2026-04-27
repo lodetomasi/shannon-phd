@@ -1,0 +1,196 @@
+{
+  "rq1": [
+    {
+      "model": "devstral-123b",
+      "n_baseline": 5,
+      "n_authority": 5,
+      "mean_baseline": 0.6,
+      "mean_authority": 0.0,
+      "delta": -0.6,
+      "ci_str": "[-2.40,+0.00]",
+      "cohen_d": -0.6324555320336759,
+      "wilcoxon_p": 0.31731050786291415,
+      "permutation_p": 1.0,
+      "capability_gap": true
+    },
+    {
+      "model": "gemma-3-4b",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 3.0,
+      "delta": 0.0,
+      "ci_str": "[+nan,+nan]",
+      "cohen_d": 0.0,
+      "wilcoxon_p": 1.0,
+      "permutation_p": 1.0,
+      "capability_gap": false
+    },
+    {
+      "model": "gpt-oss-120b",
+      "n_baseline": 5,
+      "n_authority": 5,
+      "mean_baseline": 1.8,
+      "mean_authority": 2.4,
+      "delta": 0.5999999999999999,
+      "ci_str": "[-1.20,+2.40]",
+      "cohen_d": 0.3999999999999999,
+      "wilcoxon_p": 0.5637028616507731,
+      "permutation_p": 1.0,
+      "capability_gap": true
+    },
+    {
+      "model": "haiku-3",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 3.0,
+      "delta": 0.0,
+      "ci_str": "[+nan,+nan]",
+      "cohen_d": 0.0,
+      "wilcoxon_p": 1.0,
+      "permutation_p": 1.0,
+      "capability_gap": false
+    },
+    {
+      "model": "minimax-2.5",
+      "n_baseline": 5,
+      "n_authority": 5,
+      "mean_baseline": 0.0,
+      "mean_authority": 1.8,
+      "delta": 1.8,
+      "ci_str": "[+0.60,+3.00]",
+      "cohen_d": 1.5491933384829668,
+      "wilcoxon_p": 0.08326451666355039,
+      "permutation_p": 0.171,
+      "capability_gap": true
+    },
+    {
+      "model": "ministral-3b",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 0.6,
+      "mean_authority": 0.1,
+      "delta": -0.5,
+      "ci_str": "[-1.50,+0.10]",
+      "cohen_d": -0.5423261445466404,
+      "wilcoxon_p": 0.27630291733748347,
+      "permutation_p": 0.4836666666666667,
+      "capability_gap": true
+    },
+    {
+      "model": "ministral-8b",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 0.0,
+      "mean_authority": 0.0,
+      "delta": 0.0,
+      "ci_str": "[+nan,+nan]",
+      "cohen_d": 0.0,
+      "wilcoxon_p": 1.0,
+      "permutation_p": 1.0,
+      "capability_gap": true
+    },
+    {
+      "model": "mistral-large",
+      "n_baseline": 20,
+      "n_authority": 20,
+      "mean_baseline": 3.0,
+      "mean_authority": 2.25,
+      "delta": -0.75,
+      "ci_str": "[-0.90,-0.50]",
+      "cohen_d": -2.387467277262664,
+      "wilcoxon_p": 0.00010751117672950054,
+      "permutation_p": 0.0003333333333333333,
+      "capability_gap": false
+    },
+    {
+      "model": "qwen-235b",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 2.8,
+      "mean_authority": 2.1,
+      "delta": -0.6999999999999997,
+      "ci_str": "[-1.50,+0.30]",
+      "cohen_d": -0.7311261550139305,
+      "wilcoxon_p": 0.15729920705028516,
+      "permutation_p": 0.24233333333333335,
+      "capability_gap": false
+    },
+    {
+      "model": "qwen-80b",
+      "n_baseline": 10,
+      "n_authority": 10,
+      "mean_baseline": 3.0,
+      "mean_authority": 3.0,
+      "delta": 0.0,
+      "ci_str": "[+nan,+nan]",
+      "cohen_d": 0.0,
+      "wilcoxon_p": 1.0,
+      "permutation_p": 1.0,
+      "capability_gap": false
+    }
+  ],
+  "holm_bonferroni": [
+    {
+      "raw": 0.00010751117672950054,
+      "adjusted": 0.0010751117672950054,
+      "rejected": true,
+      "label": "mistral-large"
+    },
+    {
+      "raw": 0.08326451666355039,
+      "adjusted": 0.7493806499719535,
+      "rejected": false,
+      "label": "minimax-2.5"
+    },
+    {
+      "raw": 0.15729920705028516,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "qwen-235b"
+    },
+    {
+      "raw": 0.27630291733748347,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "ministral-3b"
+    },
+    {
+      "raw": 0.31731050786291415,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "devstral-123b"
+    },
+    {
+      "raw": 0.5637028616507731,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "gpt-oss-120b"
+    },
+    {
+      "raw": 1.0,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "gemma-3-4b"
+    },
+    {
+      "raw": 1.0,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "haiku-3"
+    },
+    {
+      "raw": 1.0,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "ministral-8b"
+    },
+    {
+      "raw": 1.0,
+      "adjusted": 1.0,
+      "rejected": false,
+      "label": "qwen-80b"
+    }
+  ]
+}
